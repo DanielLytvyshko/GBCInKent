@@ -12,10 +12,11 @@ export default function Navbar() {
             </div>
             <ul className="navbar-links">
                 <li><Link to="/" className="navbar-link">Home</Link></li>
-                <li><Link to="/about" className="navbar-link">About</Link></li>
+                <li><Link to="/about" className="navbar-link">About Us</Link></li>
                 <li><Link to="/events" className="navbar-link">Events</Link></li>
                 <li><Link to="/staff" className="navbar-link">Staff</Link></li>
                 <li><Link to="/sermons" className="navbar-link">Sermons</Link></li>
+                <li><a href="/" target="_blank" rel="noopener noreferrer" className="navbar-link">Give</a></li>
             </ul>
         </nav>
     );
