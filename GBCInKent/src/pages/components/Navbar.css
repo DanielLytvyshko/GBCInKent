@@ -3,23 +3,21 @@
     justify-content: space-between;
     align-items: center;
     background-color: rgba(0, 29, 57, 255);
-    height: 11vh; 
+    height: 11vh;
     border-bottom: 4px solid #cab812;
-    padding: 0 2rem;
+    padding: 0 clamp(1rem, 4vw, 2rem);
     width: 100%;
 }
 
-.navbar-icon {
-    display: flex;
-    align-items: center;
-    margin-left: -1.6rem; 
+#navbar-logo {
+    width: clamp(4rem, 6vw, 6rem);
+    height: auto;
+    margin: 0.5rem 0;
+    transition: transform 0.3s ease;
 }
 
-#navbar-logo {
-    width: 6rem;
-    margin-top: 0.5rem; 
-    height: auto;
-    margin-bottom: 0.5vh;
+#navbar-logo:hover {
+    transform: scale(1.05);
 }
 
 .navbar-links {
@@ -27,20 +25,20 @@
     justify-content: center;
     align-items: center;
     list-style: none;
-    flex-grow: 1; 
-    gap: 5rem; 
+    gap: clamp(1rem, 5vw, 4rem);
 }
 
 .navbar-links li {
     display: flex;
+    text-align: center;
 }
 
 .navbar-link {
     position: relative;
     color: white;
     text-decoration: none;
-    font-family: 'Times New Roman', serif; 
-    font-size: 19.2px;
+    font-family: 'Times New Roman', serif;
+    font-size: clamp(14px, 2vw, 19.2px);
     letter-spacing: 2px;
     transition: all 0.3s ease;
 }
@@ -53,51 +51,47 @@
     width: 0;
     height: 2px;
     background-color: white;
-    transition: width 0.3s ease; 
+    transition: width 0.3s ease;
 }
 
 .navbar-links a:hover::after {
     width: 100%;
 }
 
-
 @keyframes underlineExpand {
-    0% {
-        width: 0;
-        left: 0;
-    }
-    100% {
-        width: 100%;
-        left: 0;
-    }
+    0% { width: 0; left: 0; }
+    100% { width: 100%; left: 0; }
 }
 
 .navbar-links a:hover::after {
-    animation: underlineExpand 0.3s forwards; 
-}
-
-.navbar-links a:not(:hover)::after {
-    animation: underlineShrink 0.3s forwards; 
+    animation: underlineExpand 0.3s forwards;
 }
 
 @keyframes underlineShrink {
-    0% {
-        width: 100%;
-        left: 0;
-    }
-    100% {
-        width: 0;
-        left: 100%;
-    }
+    0% { width: 100%; left: 0; }
+    100% { width: 0; left: 100%; }
+}
+
+.navbar-links a:not(:hover)::after {
+    animation: underlineShrink 0.3s forwards;
 }
 
 @media (max-width: 768px) {
     .navbar {
-        width: 100vh;
-        height: 13vh;
+        flex-direction: column;
+        height: auto;
+        padding: 1rem;
+        text-align: center;
     }
+    
+    #navbar-logo {
+        margin-bottom: 1rem;
+    }
+
     .navbar-links {
+        flex-wrap: wrap;
         gap: 1rem;
-        margin-right: 25rem;
+        justify-content: center;
+        width: 100%;
     }
 }
