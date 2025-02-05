@@ -1,7 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora&family=Montserrat&family=Open+Sans&display=swap');
+
 body {
     background: hsl(0, 0%, 99%);
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Open Sans', Arial, sans-serif;
 }
 
 .home-container {
@@ -10,6 +12,7 @@ body {
     align-items: center;
     padding: 2rem;
     color: rgba(0, 29, 57, 255);
+    transition: all 0.3s ease;
 }
 
 .content-wrapper {
@@ -20,9 +23,10 @@ body {
     width: 100%;
 }
 
+/* Welcome Card */
 .welcome-card {
-    width: 40%; 
-    min-height: 500px; 
+    width: 40%;
+    min-height: 550px;
     background: white;
     color: rgba(0, 29, 57, 255);
     padding: 2rem;
@@ -41,14 +45,18 @@ body {
     width: 100%;
 }
 
+/* Full-width divider */
 .gold-divider {
     border: none;
     border-bottom: 3px solid #cab812;
+    width: 100%;
     margin: 0.5rem 0;
 }
 
+/* Volunteer Section */
 .volunteer-title {
     font-size: 1.8rem;
+    font-family: 'Montserrat', sans-serif;
     font-weight: bold;
     margin-bottom: 0.5rem;
 }
@@ -59,34 +67,91 @@ body {
     margin: 0.3rem 0;
 }
 
+/* Make contact email stand out */
+.contact-email {
+    font-family: 'Lora', serif;
+    font-weight: bold;
+    color: #cab812;
+    margin-bottom: 1.5rem;
+}
+
+/* Verse Section */
 .verse-section {
-    margin: 1rem 0;
+    margin: 2rem 0 1rem;
 }
 
 .verse-text {
     font-size: 1.1rem;
+    font-family: 'Open Sans', sans-serif;
     font-weight: bold;
     margin-bottom: 0.5rem;
 }
 
+/* Highlight effect (static gradient) */
 .highlight-verse {
     display: inline-block;
-    background: linear-gradient(to right, transparent 10%, #cab812 50%, transparent 90%);
+    background: linear-gradient(to right, transparent, #fce94f, transparent);
     padding: 2px 6px;
     border-radius: 4px;
-    animation: highlight-fade 4s ease-in-out infinite;
+    margin-top: 1rem;
 }
 
-@keyframes highlight-fade {
-    0% { background-size: 200% 100%; }
-    50% { background-size: 100% 100%; }
-    100% { background-size: 200% 100%; }
-}
-
+/* Bold text */
 .bold-verse {
     font-weight: bold;
 }
 
+/* Daily Verse Fade-In Animation */
+.fade-in {
+    animation: fadeIn 1s ease-in-out forwards;
+}
+
+/* card giving section */
+.intro-give-title {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    text-align: center;
+    font-size: clamp(1.2rem, 2vw, 1.5rem);
+}
+.give-button-link {
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.intro-give-button {
+    border: 0.13rem solid #cab812;
+    border-radius: 6px;
+    width: clamp(6rem, 10vw, 7rem);
+    height: clamp(3rem, 5vw, 3rem);
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
+    margin-top: 0.8rem;
+    background-color: white;
+    color: #414040;
+    transform: translateY(5px);
+    transition: all 0.3s ease;
+}
+
+.intro-give-button:hover {
+    color: black;
+    transform: translateY(0);
+    cursor: pointer;
+}
+
+/* fadeIn animation for the daily verse */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Carousel */
 .auto-carousel {
     width: 75%;
     height: 45rem;
@@ -98,7 +163,7 @@ body {
 
 .carousel {
     display: flex;
-    width: 300%; 
+    width: 300%;
     animation: slide 33s infinite ease-in-out;
 }
 
@@ -108,6 +173,7 @@ body {
     object-fit: cover;
 }
 
+/* Keyframes for Carousel: Slide 1 hold, transition, slide 2 hold, transition, slide 3 hold, transition */
 @keyframes slide {
     0% { transform: translateX(0%); }
     24% { transform: translateX(0%); }
@@ -118,6 +184,7 @@ body {
     100% { transform: translateX(0%); }
 }
 
+/* Footer Verse Section */
 .verse-heading {
     text-align: center;
     margin-top: 2rem;
@@ -127,13 +194,16 @@ body {
     font-size: 2.2rem;
     margin-bottom: 0.5rem;
     color: #cab812;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .footer-verse {
     font-size: 1.4rem;
+    font-family: 'Lora', serif;
     font-weight: bold;
 }
 
+/* Social Media */
 .socials-intro-footer {
     display: flex;
     justify-content: center;
@@ -142,7 +212,7 @@ body {
 }
 
 .social-link img {
-    width: 50px; 
+    width: 50px;
     opacity: 0.8;
     transition: transform 0.3s ease, filter 0.3s ease, opacity 0.3s ease;
 }
@@ -153,17 +223,52 @@ body {
     opacity: 1;
 }
 
+/* Carousel Navigation Arrows */
+.prev-arrow,
+.next-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    font-size: 2.5rem;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+}
+
+.prev-arrow:hover,
+.next-arrow:hover {
+    opacity: 1;
+}
+
+.prev-arrow {
+    left: 10px;
+}
+
+.next-arrow {
+    right: 10px;
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
     .content-wrapper {
         flex-direction: column;
         align-items: center;
     }
-    
+
     .welcome-card {
         width: 90%;
     }
 
     .auto-carousel {
-        display: none; 
+        display: none;
+    }
+
+    .prev-arrow,
+    .next-arrow {
+        display: none;
     }
 }
