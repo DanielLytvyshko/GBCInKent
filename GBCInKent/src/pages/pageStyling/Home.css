@@ -63,14 +63,14 @@ body {
 
 .volunteer-subtitle,
 .contact-email {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     margin: 0.3rem 0;
 }
 
 /* Make contact email stand out */
 .contact-email {
     font-family: 'Lora', serif;
-    font-weight: bold;
+    font-weight: bolder;
     color: #cab812;
     margin-bottom: 1.5rem;
 }
@@ -151,7 +151,8 @@ body {
     }
 }
 
-/* Carousel */
+/* Carousel Container */
+/* Carousel Container */
 .auto-carousel {
     width: 75%;
     height: 45rem;
@@ -159,29 +160,48 @@ body {
     position: relative;
     border: 3px solid #cab812;
     border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
+/* Carousel Wrapper */
 .carousel {
     display: flex;
-    width: 300%;
-    animation: slide 33s infinite ease-in-out;
+    width: 100%;
+    height: 100%;
+    transition: transform 1s ease-in-out; /* Slower transition */
 }
 
+/* Carousel Images */
 .carousel img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    flex-shrink: 0;
 }
 
-/* Keyframes for Carousel: Slide 1 hold, transition, slide 2 hold, transition, slide 3 hold, transition */
-@keyframes slide {
-    0% { transform: translateX(0%); }
-    24% { transform: translateX(0%); }
-    33% { transform: translateX(-100%); }
-    57% { transform: translateX(-100%); }
-    66% { transform: translateX(-200%); }
-    90% { transform: translateX(-200%); }
-    100% { transform: translateX(0%); }
+/* Navigation Buttons */
+.prev-arrow, .next-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 2rem;
+    padding: 0.5rem;
+    border-radius: 50px;
+    z-index: 2;
+    transition: background 0.3s ease;
+}
+
+.prev-arrow { left: 10px; }
+.next-arrow { right: 10px; }
+
+.prev-arrow:hover, .next-arrow:hover {
+    background: rgba(0, 0, 0, 0.8);
 }
 
 /* Footer Verse Section */
