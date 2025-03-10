@@ -292,3 +292,20 @@ body {
         display: none;
     }
 }
+
+.welcome-container {
+    width: 100%;
+    height: 100vh;
+    background-color: #0d0d73c0;
+    opacity: 1;
+    border-top: 2px solid #cab812;
+}
+
+.context-welcome-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    flex-direction: column;
+}
